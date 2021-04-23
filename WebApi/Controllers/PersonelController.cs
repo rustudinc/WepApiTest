@@ -305,7 +305,32 @@ namespace WebApi.Controllers
             }
         }
 
+        [Route("api/personel/GetByTitle3/{title}")]
+        public ResponseModel<List<PersonelModel>> GetByTitle3(string title)
+        {
+            var result = PersonelData.Personels.Where(p => p.Title.Contains(title)).ToList();
 
+            if (result != null && result.Count > 0)
+            {
+                return new ResponseModel<List<PersonelModel>>
+                {
+                    IsSuccess = true,
+                    Message = StatusCodeConstant.IslemBasarili,
+                    StatusCode = (int)StatusCodeEnum.IslemBasarili,
+                    Data = result
+                };
+            }
+            else
+            {
+                return new ResponseModel<List<PersonelModel>>
+                {
+                    IsSuccess = true,
+                    Message = StatusCodeConstant.DataNotFound,
+                    StatusCode = (int)StatusCodeEnum.DataNotFound,
+                    Data = result
+                };
+            }
+        
 
 
 
