@@ -305,8 +305,8 @@ namespace WebApi.Controllers
             }
         }
 
-        [Route("api/personel/GetByTitle3/{title}")]
-        public ResponseModel<List<PersonelModel>> GetByTitle3(string title)
+        [Route("api/personel/GetByTitle4/{title}")]
+        public ResponseModel<List<PersonelModel>> GetByTitle4(string title)
         {
             var result = PersonelData.Personels.Where(p => p.Title.Contains(title)).ToList();
 
